@@ -23,14 +23,17 @@ runner.add(MaxPooling2D(pool_size=(2,2)))
 runner.add(Conv2D(64,3,3, activation='relu'))
 runner.add(MaxPooling2D(pool_size=(2,2)))
 runner.add(Flatten())
+
 #connect this to classic ann model
 runner.add(Dense(64,activation ='relu'))
 runner.add(Dense(128,activation ='relu'))
 runner.add(Dense(256,activation ='relu'))
 runner.add(Dense(1,activation ='sigmoid'))
-#giving life to our baby
+
+#giving life to our the bad boy
 runner.compile(optimizer = 'adam', loss = 'binary_crossentropy',
                metrics = ['accuracy'])
+
 #from keras.io to help simplify the code for image manipulation
 from keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(rescale = 1./255,
